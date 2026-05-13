@@ -11,24 +11,31 @@
       color: #fff;
       font-family: Helvetica, Arial, Courier, monospace;
       margin: 0;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+    }
+
+    /* Entire page constrained to image width */
+    .page-column {
+      width: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
     }
 
     .homepage-header {
       font-size: 18px;
       font-weight: bold;
+      line-height: 1.2;
       margin-bottom: 48px;
-      text-align: center;
+      text-align: left;
     }
 
     .portrait {
       position: relative;
-      top: -6vh;
-      text-align: center;
+      top: -2vh;
       width: 120px;
     }
 
@@ -36,8 +43,8 @@
       width: 120px;
       height: 160px;
       object-fit: cover;
-      border-radius: 4px;
       border: none;
+      border-radius: 0;
       display: block;
     }
 
@@ -46,9 +53,9 @@
       flex-direction: column;
       gap: 12px;
       font-size: 12px;
-      margin-top: -3vh;
-      text-align: center;
+      margin-top: 18px;
       width: 120px;
+      text-align: right;
     }
 
     .text-column a {
@@ -75,36 +82,42 @@
 
 <body>
 
-  <div class="homepage-header">
-    This is the true homepage of Nate Bourget
-  </div>
-
-  <div class="portrait">
-    <img src="homepagepics/home.jpg" alt="Your portrait">
-  </div>
-
-  <div class="text-column">
-    <div>
-      <a href="https://natebourget.com/">Portfolio</a>
-    </div>
+  <div class="page-column">
 
     <div>
-      <a href="https://nervepilot.com/">Nervepilot</a>
+      This is the true homepage of Nate Bourget
     </div>
 
-    <div>
-      <a href="the-limit.html">The Limit</a>
+    <div class="portrait">
+      <img src="homepagepics/home.jpg" alt="Your portrait">
     </div>
 
-    <div>
-      <a href="https://www.instagram.com/amazingliquidfire/">Social</a>
+    <div class="text-column">
+
+      <div>
+        <a href="https://natebourget.com/">Portfolio</a>
+      </div>
+
+      <div>
+        <a href="https://nervepilot.com/">Nervepilot</a>
+      </div>
+
+      <div>
+        <a href="the-limit.html">The Limit</a>
+      </div>
+
+      <div>
+        <a href="https://www.instagram.com/amazingliquidfire/">Social</a>
+      </div>
+
+      <div class="contact-info">
+        info@nervepilot.com<br>
+        tel. +1 (617) 750-4639<br>
+        Text or Voicemail
+      </div>
+
     </div>
 
-    <div class="contact-info">
-      info@nervepilot.com<br>
-      tel. +1 (617) 750-4639<br>
-      Text or Voicemail
-    </div>
   </div>
 
 </body>
