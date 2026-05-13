@@ -26,11 +26,13 @@
     }
 
     .homepage-header {
-      font-size: 18px;
-      font-weight: bold;
-      line-height: 1.2;
+      font-size: 12px;
+      font-weight: normal;
+      line-height: 1.3;
       margin-bottom: 48px;
-      text-align: left;
+      text-align: right;
+      text-decoration: underline;
+      text-underline-offset: 2px;
     }
 
     .portrait {
@@ -58,14 +60,18 @@
       text-align: right;
     }
 
-    .text-column a {
+    .text-column a,
+    .homepage-header {
       color: #fff;
       text-decoration: underline;
       text-underline-offset: 2px;
+      transition: all 0.1s ease;
     }
 
-    .text-column a:hover {
-      opacity: 0.7;
+    .text-column a:hover,
+    .homepage-header:hover {
+      font-family: "Times New Roman", Times, serif;
+      font-style: italic;
     }
 
     .contact-info {
@@ -84,7 +90,7 @@
 
   <div class="page-column">
 
-    <div>
+    <div class="homepage-header">
       This is the true homepage of Nate Bourget
     </div>
 
@@ -108,6 +114,10 @@
 
       <div>
         <a href="https://www.instagram.com/amazingliquidfire/">Social</a>
+      </div>
+
+      <div>
+        <a href="https://4orm.harrhy.xyz/u/einhorn">4orm</a>
       </div>
 
       <div class="contact-info">
