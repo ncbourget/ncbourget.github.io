@@ -17,7 +17,6 @@
       align-items: center;
     }
 
-    /* Entire page constrained to image width */
     .page-column {
       width: 120px;
       display: flex;
@@ -71,6 +70,10 @@
       font-style: italic;
     }
 
+    .updates-link {
+      color: yellow !important;
+    }
+
     .contact-info {
       margin-top: 48px;
       color: #bfbfbf;
@@ -79,6 +82,87 @@
       line-height: 1.6;
       text-align: left;
       width: 120px;
+    }
+
+    /* Updates window */
+
+    .updates-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+    }
+
+    .updates-overlay.active {
+      display: block;
+    }
+
+    .updates-window {
+      position: absolute;
+      left: 9vw;
+      top: 17vh;
+      width: 420px;
+      height: 620px;
+      background-color: #aebebe;
+      color: #000;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .updates-marquee {
+      height: 24px;
+      background-color: yellow;
+      color: red;
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: normal;
+    }
+
+    .updates-marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 9s linear infinite;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .updates-content {
+      height: calc(100% - 24px);
+      overflow-y: auto;
+      padding: 18px;
+      box-sizing: border-box;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .update-entry {
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+      padding-bottom: 18px;
+    }
+
+    .update-entry h2 {
+      font-size: 12px;
+      margin: 0 0 8px 0;
+      font-weight: bold;
+    }
+
+    .update-entry p {
+      margin: 0 0 10px 0;
+    }
+
+    .update-entry img {
+      width: 100%;
+      display: block;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -119,6 +203,10 @@
         <a href="https://4orm.harrhy.xyz/u/einhorn">4orm</a>
       </div>
 
+      <div>
+        <a href="#" class="updates-link" id="openUpdates">Updates</a>
+      </div>
+
       <div class="contact-info">
         info@nervepilot.com<br>
         tel. +1 (617) 750-4639<br>
@@ -128,6 +216,56 @@
     </div>
 
   </div>
+
+  <div class="updates-overlay" id="updatesOverlay">
+    <div class="updates-window" id="updatesWindow">
+
+      <div class="updates-marquee">
+        <span>UPDATES! UPDATES! UPDATES! UPDATES! UPDATES! UPDATES!</span>
+      </div>
+
+      <div class="updates-content">
+
+        <!-- Copy and paste one of these update-entry blocks whenever you want a new changelog -->
+
+        <div class="update-entry">
+          <h2>May 2026</h2>
+          <p>
+            First update goes here. This can be a short note, changelog, announcement, or whatever else.
+          </p>
+          <img src="homepagepics/example-update.jpg" alt="Update image">
+        </div>
+
+        <div class="update-entry">
+          <h2>Older Update</h2>
+          <p>
+            Another update goes here. You can delete the image line if the update is text-only.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const openUpdates = document.getElementById("openUpdates");
+    const updatesOverlay = document.getElementById("updatesOverlay");
+    const updatesWindow = document.getElementById("updatesWindow");
+
+    openUpdates.addEventListener("click", function(event) {
+      event.preventDefault();
+      updatesOverlay.classList.add("active");
+    });
+
+    updatesOverlay.addEventListener("click", function() {
+      updatesOverlay.classList.remove("active");
+    });
+
+    updatesWindow.addEventListener("click", function(event) {
+      event.stopPropagation();
+    });
+  </script>
 
 </body>
 </html>
