@@ -193,18 +193,18 @@ img {
 
 .limit-title {
   display: inline-block;
-  margin-top: 28px;
+  margin-top: 30px;
 }
 
 .limit-tooltip {
-  opacity: 0;
   color: #777;
-  margin: 22px 0 0 0;
+  margin-top: 26px;
+  opacity: 0;
   transition: opacity 0.15s ease;
+  pointer-events: none;
 }
 
-.limit-card:has(img:hover) .limit-tooltip,
-.limit-title:hover + .limit-tooltip {
+.limit-card:hover .limit-tooltip {
   opacity: 1;
 }
 
