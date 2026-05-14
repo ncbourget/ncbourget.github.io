@@ -191,15 +191,21 @@ img {
   object-fit: cover;
 }
 
-.limit-card h2 {
-  font-size: inherit;
-  font-weight: normal;
-  margin: 28px 0 22px 0;
+.limit-title {
+  display: inline-block;
+  margin-top: 28px;
 }
 
-.limit-card p {
+.limit-tooltip {
+  opacity: 0;
   color: #777;
-  margin: 0;
+  margin: 22px 0 0 0;
+  transition: opacity 0.15s ease;
+}
+
+.limit-card:has(img:hover) .limit-tooltip,
+.limit-title:hover + .limit-tooltip {
+  opacity: 1;
 }
 
 
