@@ -206,8 +206,9 @@ img {
 
 .limit-home-link {
   width: 100%;
-  padding-top: 36px;
-  padding-left: 36px;
+  max-width: 1000px;
+  margin: 36px auto 0 auto;
+  padding-left: 0;
 }
 
 .limit-card:hover .limit-tooltip {
