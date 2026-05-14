@@ -204,6 +204,12 @@ img {
   pointer-events: none;
 }
 
+.limit-home-link {
+  width: 100%;
+  padding-top: 36px;
+  padding-left: 36px;
+}
+
 .limit-card:hover .limit-tooltip {
   opacity: 1;
 }
