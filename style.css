@@ -39,11 +39,12 @@ img {
 /* HOME PAGE */
 
 .home-page {
-  min-height: 200vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding-bottom: 120vh;
 }
 
 .page-column {
@@ -97,7 +98,7 @@ img {
 
 .secret-blog-gate {
   position: absolute;
-  top: 115vh;
+  top: calc(100vh + 80px);
   left: 50%;
   transform: translateX(-50%);
   width: 280px;
@@ -290,5 +291,9 @@ img {
     top: 80px;
     width: calc(100vw - 48px);
     height: 70vh;
+  }
+
+  .secret-blog-gate {
+    width: calc(100vw - 48px);
   }
 }
