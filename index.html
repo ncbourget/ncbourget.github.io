@@ -38,6 +38,33 @@
 
   </div>
 
+  <section class="secret-blog-gate">
+    <input
+      type="text"
+      id="blogCode"
+      placeholder="enter code"
+      autocomplete="off"
+    >
+
+    <div class="secret-blog" id="secretBlog">
+
+      <article class="blog-entry">
+        <h2>Blog entry title</h2>
+        <p>
+          This is the first hidden blog post. You can write whatever you want here.
+        </p>
+      </article>
+
+      <article class="blog-entry">
+        <h2>Another entry</h2>
+        <p>
+          The blog cascades downward naturally. Just copy and paste more blog-entry blocks.
+        </p>
+      </article>
+
+    </div>
+  </section>
+
   <div class="updates-overlay" id="updatesOverlay">
     <div class="updates-window" id="updatesWindow">
 
@@ -76,6 +103,19 @@
 
     updatesWindow.addEventListener("click", function(event) {
       event.stopPropagation();
+    });
+
+    const blogCode = document.getElementById("blogCode");
+    const secretBlog = document.getElementById("secretBlog");
+
+    // Password is intentionally visible:
+    const password = "1569";
+
+    blogCode.addEventListener("input", function() {
+      if (blogCode.value === password) {
+        secretBlog.classList.add("unlocked");
+        blogCode.blur();
+      }
     });
   </script>
 
