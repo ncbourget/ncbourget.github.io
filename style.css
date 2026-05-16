@@ -1,5 +1,3 @@
-/* GLOBAL BRAND SYSTEM */
-
 * {
   box-sizing: border-box;
 }
@@ -36,14 +34,13 @@ img {
   border-radius: 0;
 }
 
-/* HOME PAGE */
-
 .home-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   position: relative;
+  padding-top: 17vh;
   padding-bottom: 120vh;
 }
 
@@ -94,8 +91,6 @@ img {
   width: 120px;
 }
 
-/* SECRET BLOG */
-
 .secret-blog-gate {
   position: absolute;
   top: calc(100vh + 80px);
@@ -144,8 +139,6 @@ img {
   margin: 0;
 }
 
-/* UPDATES WINDOW */
-
 .updates-overlay {
   display: none;
   position: fixed;
@@ -158,7 +151,7 @@ img {
 }
 
 .updates-window {
-  position: absolute;
+  position: fixed;
   left: 9vw;
   top: 17vh;
   width: 420px;
@@ -166,10 +159,13 @@ img {
   background-color: #aebebe;
   color: #000;
   font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .updates-marquee {
   height: 24px;
+  flex: 0 0 24px;
   background-color: yellow;
   color: red;
   overflow: hidden;
@@ -195,7 +191,7 @@ img {
 }
 
 .updates-content {
-  height: calc(100% - 24px);
+  flex: 1;
   overflow-y: auto;
   padding: 18px;
 }
@@ -220,8 +216,6 @@ img {
   width: 100%;
   margin-top: 10px;
 }
-
-/* THE LIMIT PAGE */
 
 .limit-page {
   min-height: 100vh;
@@ -270,8 +264,6 @@ img {
 .limit-card:hover .limit-tooltip {
   opacity: 1;
 }
-
-/* RESPONSIVE RULES */
 
 @media (max-width: 1100px) {
   .limit-home-link {
