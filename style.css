@@ -261,8 +261,8 @@ img {
   pointer-events: none;
 }
 
-.limit-pdf-link {
-  color: #39ff14;
+.limit-highlight {
+  color: yellow;
 }
 
 .limit-card:hover .limit-tooltip {
