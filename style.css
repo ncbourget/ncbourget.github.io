@@ -261,8 +261,13 @@ img {
   pointer-events: none;
 }
 
+.limit-pdf-link {
+  color: #39ff14;
+}
+
 .limit-card:hover .limit-tooltip {
   opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 1100px) {
