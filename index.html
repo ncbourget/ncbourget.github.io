@@ -9,155 +9,40 @@
 
 <body class="home-page">
 
+  <section class="beveled-box" aria-label="Updates">
+    <div class="updates-marquee">
+      <span>UPDATES! UPDATES! UPDATES! UPDATES! UPDATES! UPDATES!</span>
+    </div>
+    <div class="updates-content">
+      <div class="update-entry">
+        <h2>October 26th 2026</h2>
+        <p><a href="https://wainstop.com/">wainstop.com</a> is complete.</p>
+      </div>
+      <div class="update-entry">
+        <h2>July 1st 2026</h2>
+        <p><a href="https://natebourget.com/">Portfolio website</a> fully complete, check it out and hire me.</p>
+      </div>
+    </div>
+  </section>
+
   <div class="page-column">
 
     <div class="homepage-header">
-      This is the true<br>
-      homepage of<br>
-      Nate Bourget
+      This is where the agent <a href="https://web.archive.org/web/20260000000000*/ncbourget.github.io">previously</a> hid
     </div>
 
-    <div class="portrait">
+    <a class="portrait" href="amygdala.html" aria-label="Enter amygdala">
       <img src="images/home.jpg" alt="Your portrait">
-    </div>
+    </a>
 
     <div class="text-column">
       <div><a href="https://natebourget.com/">Portfolio</a></div>
       <div><a href="https://nervepilot.com/">Nervepilot</a></div>
       <div><a href="the-limit.html">The Limit</a></div>
       <div><a href="https://www.instagram.com/amazingliquidfire/">Social</a></div>
-      <div><a href="https://4orm.harrhy.xyz/u/einhorn">4orm</a></div>
-      <div><a href="#" class="updates-link" id="openUpdates">Updates</a></div>
-
-      <div class="contact-info">
-        info@nervepilot.com<br>
-        tel. +1 (617) 750-4639<br>
-        Text or Voicemail
-      </div>
     </div>
 
   </div>
-
-  <section class="secret-blog-gate">
-    <input
-      type="text"
-      id="blogCode"
-      placeholder="enter code"
-      autocomplete="off"
-    >
-
-    <div class="secret-blog" id="secretBlog">
-
-      <article class="blog-entry">
-        <h2>Blog entry title</h2>
-        <p>
-          This is the first hidden blog post. You can write whatever you want here.
-        </p>
-      </article>
-
-      <article class="blog-entry">
-        <h2>Another entry</h2>
-        <p>
-          The blog cascades downward naturally. Just copy and paste more blog-entry blocks.
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <div class="updates-overlay" id="updatesOverlay">
-    <div class="updates-window" id="updatesWindow">
-
-      <div class="updates-marquee">
-        <span>UPDATES! UPDATES! UPDATES! UPDATES! UPDATES! UPDATES!</span>
-      </div>
-
-      <div class="updates-content">
-
-        <div class="update-entry">
-          <h2>Update 01</h2>
-          <p>Placeholder update text goes here. This can be edited easily inside index.html.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 02</h2>
-          <p>Placeholder update text goes here. This can include notes, changelogs, images, or links.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 03</h2>
-          <p>Placeholder update text goes here. Add an image below by using an img tag.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 04</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 05</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 06</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 07</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 08</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 09</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-        <div class="update-entry">
-          <h2>Update 10</h2>
-          <p>Placeholder update text goes here.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    const openUpdates = document.getElementById("openUpdates");
-    const updatesOverlay = document.getElementById("updatesOverlay");
-    const updatesWindow = document.getElementById("updatesWindow");
-
-    openUpdates.addEventListener("click", function(event) {
-      event.preventDefault();
-      updatesOverlay.classList.add("active");
-    });
-
-    updatesOverlay.addEventListener("click", function() {
-      updatesOverlay.classList.remove("active");
-    });
-
-    updatesWindow.addEventListener("click", function(event) {
-      event.stopPropagation();
-    });
-
-    const blogCode = document.getElementById("blogCode");
-    const secretBlog = document.getElementById("secretBlog");
-    const password = "1569";
-
-    blogCode.addEventListener("input", function() {
-      if (blogCode.value === password) {
-        secretBlog.classList.add("unlocked");
-        blogCode.blur();
-      }
-    });
-  </script>
 
 </body>
 </html>
