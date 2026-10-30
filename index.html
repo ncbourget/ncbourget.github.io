@@ -9,7 +9,7 @@
 
 <body class="home-page">
 
-  <section class="beveled-box" aria-label="Updates">
+  <section class="beveled-box" aria-label="Updates" hidden>
     <div class="updates-marquee">
       <span>UPDATES! UPDATES! UPDATES! UPDATES! UPDATES! UPDATES!</span>
     </div>
@@ -26,23 +26,60 @@
   </section>
 
   <div class="page-column">
+    <h1 class="homepage-name"><img src="assets/logo/name-now.png" alt="Nate Bourget"></h1>
 
     <div class="homepage-header">
-      This is where the agent <a href="https://web.archive.org/web/20260000000000*/ncbourget.github.io">previously</a> hid
+      where the agent <a href="https://web.archive.org/web/20260000000000*/ncbourget.github.io">once</a> hid
     </div>
 
     <a class="portrait" href="amygdala.html" aria-label="Enter amygdala">
-      <img src="images/home.jpg" alt="Your portrait">
+      <img src="assets/images/home.jpg" alt="Your portrait">
     </a>
 
     <div class="text-column">
-      <div><a href="https://natebourget.com/">Portfolio</a></div>
-      <div><a href="https://nervepilot.com/">Nervepilot</a></div>
+      <div><a href="https://nervepilot.com/users/ncbourget/">Social Media</a></div>
+      <div><a href="https://crystalmyth.xyz/">CrystalMyth</a></div>
       <div><a href="the-limit.html">The Limit</a></div>
-      <div><a href="https://www.instagram.com/amazingliquidfire/">Social</a></div>
     </div>
 
   </div>
 
+  <script>
+    const phrases = [
+      "where the agent once hid",
+      "when you're feeling subdued",
+      "always better when someone else makes it",
+      "heads again",
+      "Apply! Assess! Apply!",
+      "casing..."
+    ];
+    const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+    const heading = document.querySelector(".homepage-header");
+    heading.textContent = phrase;
+    if (phrase === phrases[0]) {
+      const archive = document.createElement("a");
+      archive.href = "https://web.archive.org/web/20260000000000*/ncbourget.github.io";
+      archive.textContent = "once";
+      heading.replaceChildren("where the agent ", archive, " hid");
+    }
+
+    const updates = document.querySelector(".beveled-box");
+    let typed = "";
+
+    document.addEventListener("keydown", function(event) {
+      if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
+      if (event.target.closest("input, textarea, select, [contenteditable]")) return;
+      if (event.key.length !== 1) {
+        typed = "";
+        return;
+      }
+
+      typed = (typed + event.key.toLowerCase()).slice(-7);
+      if (typed === "updates") {
+        updates.hidden = false;
+        typed = "";
+      }
+    });
+  </script>
 </body>
 </html>
