@@ -123,6 +123,7 @@ img {
 }
 
 .home-page {
+  background: #5d5c57;
   min-height: 100vh;
   display: block;
   position: relative;
@@ -222,6 +223,32 @@ img {
   font-display: swap;
 }
 
+.enter-site,
+.enter-site:hover {
+  position: absolute;
+  top: 75vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "The Curious Keep Looking", serif;
+  font-size: 32px;
+  font-size-adjust: none;
+  font-style: normal;
+  white-space: nowrap;
+}
+
+.stud-belt {
+  width: 100%;
+  height: 216px;
+  background-image: url("assets/pattern/stud-small.png");
+  background-size: 72px 72px;
+  background-repeat: repeat;
+}
+
+.site-page {
+  min-height: 100vh;
+  background: #9b8d75;
+}
+
 .hub-page {
   font-family: "The Curious Keep Looking", serif;
   background: #260a5e;
@@ -238,7 +265,7 @@ img {
   line-height: 1.1;
   overflow-wrap: anywhere;
   color: #f5e000;
-  animation: horse-colors 0.08s steps(1, end) infinite;
+  animation: horse-colors 0.06s steps(1, end) infinite;
 }
 
 @keyframes horse-colors {
