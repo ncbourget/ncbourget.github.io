@@ -40,6 +40,57 @@ img {
   border-radius: 0;
 }
 
+.backup-page {
+  min-height: 100vh;
+  display: flow-root;
+  position: relative;
+  background-color: #fc3503;
+  border-left: 7.28vw solid #000;
+  border-right: 14.56vw solid #000;
+}
+
+.backup-back,
+.backup-back:hover {
+  position: absolute;
+  top: 0;
+  right: 100%;
+  width: 7.28vw;
+  color: #0000ff;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 144px;
+  font-size-adjust: none;
+  font-style: normal;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+}
+
+.backup-back:hover,
+.backup-back:focus-visible {
+  color: #ffff00;
+}
+
+@media (max-width: 1540px) {
+  .backup-back,
+  .backup-back:hover {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 770px) {
+  .backup-back,
+  .backup-back:hover {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 515px) {
+  .backup-back,
+  .backup-back:hover {
+    font-size: 24px;
+  }
+}
+
 .wwl-page {
   min-height: 100vh;
   background: #aab5be;
@@ -218,22 +269,92 @@ img {
 }
 
 @font-face {
+  font-family: "Shatter Std";
+  src: url("assets/type/ShatterStd.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "WTR French Clarendon Ornamented";
+  src: url("assets/type/WTRFrenchClarendonOrnamented.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
   font-family: "The Curious Keep Looking";
   src: url("assets/type/the-curious-keep-looking.woff2") format("woff2");
   font-display: swap;
 }
 
-.enter-site,
-.enter-site:hover {
+.home-sections {
   position: absolute;
   top: 75vh;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.enter-site,
+.enter-site:hover {
   font-family: "The Curious Keep Looking", serif;
   font-size: 32px;
   font-size-adjust: none;
   font-style: normal;
   white-space: nowrap;
+}
+
+.marksmen-page {
+  --marksmen-yellow: #fff4c9;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: url("blind-marksmen/gunclub.webp") top left repeat-x,
+    url("blind-marksmen/gunclub.webp") bottom left repeat-x #737e6f;
+  background-size: 92.16px 92.16px;
+}
+
+.marksmen-boxes {
+  grid-area: 1 / 1;
+  justify-self: start;
+  width: min(24%, 240px, max(0px, (100dvh - 88px) / 3));
+  margin: 24px 0 24px 32px;
+  display: grid;
+  gap: 20px;
+}
+
+.marksmen-boxes > div {
+  aspect-ratio: 1;
+  background-color: var(--marksmen-yellow);
+}
+
+.marksmen-back,
+.marksmen-back:hover {
+  grid-area: 1 / 1;
+  color: var(--marksmen-yellow);
+  font: 59px Arial, sans-serif;
+  font-size-adjust: none;
+  text-decoration: none;
+}
+
+@media (max-width: 650px) {
+  .marksmen-page {
+    padding-block: 0 92.16px;
+  }
+
+  .marksmen-boxes {
+    width: min(45%, 240px, max(0px, (100dvh - 282px) / 3));
+    margin-left: 20px;
+  }
+
+  .marksmen-back,
+  .marksmen-back:hover {
+    grid-row: 2;
+    margin-bottom: 24px;
+  }
 }
 
 .stud-belt {
@@ -244,9 +365,39 @@ img {
   background-repeat: repeat;
 }
 
+.devlog-links {
+  padding: 20px 12px;
+  display: grid;
+  gap: 12px;
+}
+
+.devlog-links a {
+  color: #000;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  font-style: normal;
+  font-size-adjust: none;
+  text-decoration: underline;
+  overflow-wrap: anywhere;
+}
+
+.devlog-links a:hover,
+.devlog-links a:focus-visible {
+  color: #fff;
+  background: #0000ff;
+}
+
 .site-page {
   min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
   background: #9b8d75;
+}
+
+.site-footer {
+  margin-top: auto;
 }
 
 .hub-page {
@@ -304,6 +455,11 @@ img {
   overflow: hidden;
   aspect-ratio: 1;
   background: transparent;
+}
+
+.hub-wide {
+  grid-column: span 2;
+  aspect-ratio: 2;
 }
 
 .hub-square img,

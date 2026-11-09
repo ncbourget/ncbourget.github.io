@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blind-marksmen</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body class="marksmen-page">
+  <div class="marksmen-boxes" aria-hidden="true">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <a class="marksmen-back" href="../index.html">&lt; Back &lt;</a>
+  <script>
+    document.querySelector(".marksmen-back").addEventListener("click", function(event) {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      if (window.history.length > 1) {
+        event.preventDefault();
+        window.history.back();
+      }
+    });
+  </script>
+</body>
+</html>
