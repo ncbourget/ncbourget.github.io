@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Targeted-Individual</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="iso-page">
+  <a class="iso-back" href="projects.html" aria-label="Back to projects">../</a>
+  <main class="iso-log">
+    <h1>Targeted-Individual</h1>
+    <article aria-labelledby="iso-entry-1">
+      <h2 id="iso-entry-1"><time datetime="2026-11-06">November 6, 2026</time></h2>
+      <div class="iso-notes"></div>
+      <div class="iso-screenshots">
+        <a href="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%202.06.16%E2%80%AFPM.png"><img src="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%202.06.16%E2%80%AFPM.png" alt="Targeted-Individual development screenshot 1"></a>
+        <a href="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%202.06.27%E2%80%AFPM.png"><img src="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%202.06.27%E2%80%AFPM.png" alt="Targeted-Individual development screenshot 2"></a>
+        <a href="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%202.06.34%E2%80%AFPM.png"><img src="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%202.06.34%E2%80%AFPM.png" alt="Targeted-Individual development screenshot 3"></a>
+        <a href="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%2011.33.47%E2%80%AFPM.png"><img src="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%2011.33.47%E2%80%AFPM.png" alt="Targeted-Individual development screenshot 4"></a>
+        <a href="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%2011.34.08%E2%80%AFPM.png"><img src="vgame-devlogs/iso-shooter/devlog1/Screenshot%202026-11-06%20at%2011.34.08%E2%80%AFPM.png" alt="Targeted-Individual development screenshot 5"></a>
+        <a href="vgame-devlogs/iso-shooter/devlog1/tb-progress.png"><img src="vgame-devlogs/iso-shooter/devlog1/tb-progress.png" alt="Targeted-Individual development progress"></a>
+      </div>
+    </article>
+  </main>
+  <dialog class="iso-viewer" aria-label="Screenshot viewer">
+    <img alt="">
+    <form method="dialog">
+      <button aria-label="Close screenshot">&times;</button>
+    </form>
+  </dialog>
+  <script>
+    const viewer = document.querySelector(".iso-viewer");
+    const preview = viewer.querySelector("img");
+
+    document.querySelectorAll(".iso-screenshots a").forEach(link => {
+      link.addEventListener("click", event => {
+        if (!viewer.showModal || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        preview.src = link.href;
+        preview.alt = link.querySelector("img").alt;
+        viewer.showModal();
+      });
+    });
+
+    viewer.addEventListener("click", event => {
+      if (event.target === viewer) viewer.close();
+    });
+  </script>
+</body>
+</html>

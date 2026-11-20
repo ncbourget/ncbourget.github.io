@@ -37,20 +37,47 @@
     </a>
 
     <div class="text-column">
-      <div><a href="https://nervepilot.com/users/ncbourget/">Social Media</a></div>
-      <div><a href="https://crystalmyth.xyz/">CrystalMyth</a></div>
-      <div><a href="the-limit.html">The Limit</a></div>
+      <button class="prayer-button" type="button" aria-label="Prayer works! Dismiss error screen" disabled>
+        <img class="prayer-gif" src="assets/images/prayer-works!.gif" width="355" height="261" alt="Prayer works!">
+      </button>
     </div>
 
   </div>
 
   <nav class="home-sections" aria-label="Sections">
-    <a class="enter-site" href="videogames.html">⚜︎Video Games⚜︎</a>
-    <a class="enter-site" href="outlinks.html">⚜︎Outlinks⚜︎</a>
-    <a class="enter-site" href="blog/brainstem.html">⚜︎Blog⚜︎</a>
+    <a class="enter-site" href="projects.html">⚜︎projects⚜︎</a>
+    <a class="enter-site" href="outlinks.html">⚜︎outlinks⚜︎</a>
+    <a class="enter-site" href="diary.html">⚜︎diary⚜︎</a>
+    <a class="enter-site" href="videos.html">⚜︎videos⚜︎</a>
   </nav>
 
+  <div class="home-error" hidden>
+    <h1>Error response</h1>
+    <p>Error code: 404</p>
+    <p>Message: File not found.</p>
+    <p>Error code explanation: HTTPStatus.NOT_FOUND - Nothing matches the given URI.</p>
+  </div>
+
   <script>
+    const errorScreen = document.querySelector(".home-error");
+    const prayerButton = document.querySelector(".prayer-button");
+    let dismissedUntil = 0;
+    try {
+      dismissedUntil = Number(localStorage.getItem("home-error-dismissed-until"));
+    } catch {}
+
+    prayerButton.addEventListener("click", () => {
+      errorScreen.hidden = true;
+      prayerButton.disabled = true;
+      try {
+        localStorage.setItem("home-error-dismissed-until", String(Date.now() + 60 * 60 * 1000));
+      } catch {}
+    });
+    if (dismissedUntil <= Date.now()) {
+      prayerButton.disabled = false;
+      errorScreen.hidden = false;
+    }
+
     const phrases = [
       "where the agent once hid",
       "when you're feeling subdued",
@@ -73,6 +100,7 @@
     let typed = "";
 
     document.addEventListener("keydown", function(event) {
+      if (!errorScreen.hidden) return;
       if (event.ctrlKey || event.metaKey || event.altKey || event.isComposing) return;
       if (event.target.closest("input, textarea, select, [contenteditable]")) return;
       if (event.key.length !== 1) {

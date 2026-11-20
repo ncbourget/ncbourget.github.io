@@ -7,12 +7,14 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="hub-page">
-  <h1 class="hub-heading">WHITE HORSE, PALE HORSE<br>BLACK HORSE, RED HORSE</h1>
+  <div class="hub-col">
+  <a class="hub-back" href="index.html">RETURN BACK</a>
+  <h1 class="hub-heading">WHITE HORSE,<br>RED HORSE,<br>BLACK HORSE,<br>PALE HORSE.</h1>
   <main class="hub-squares" aria-label="Amygdala">
-    <a class="hub-square" href="blog/wwl.html"><img src="assets/images/deus.jpg" alt="Deus"></a>
+    <div class="hub-square"><img src="assets/images/deus.jpg" alt="Deus"></div>
     <div class="hub-square"><video src="assets/videos/little-death.mp4" autoplay muted loop playsinline aria-label="Little Death"></video></div>
-    <a class="hub-square hub-wide" href="blind-marksmen/index.html" aria-label="Blind Marksmen"><img src="blind-marksmen/snowmen.png" alt=""></a>
-    <div class="hub-square"></div>
+    <a class="hub-square hub-wide" href="blind-marksmen.html" aria-label="Blind Marksmen"><img src="blind-marksmen/snowmen.png" alt=""></a>
+    <div class="hub-square"><img src="blog/assets/pit.gif" alt="Pit"></div>
     <div class="hub-square"></div>
     <div class="hub-square"></div>
     <div class="hub-square"></div>
@@ -21,8 +23,36 @@
     <div class="hub-square"></div>
     <div class="hub-square"></div>
   </main>
+  </div>
   <script>
     document.querySelector("video").playbackRate = 2;
+
+    var hd = document.querySelector(".hub-heading");
+    var lines = hd.innerHTML.split("<br>");
+    var ln = 0, n = 0;
+
+    function draw() {
+      hd.innerHTML = lines.map(function (t, i) {
+        var k = i < ln ? t.length : i > ln ? 0 : n;
+        return t.slice(0, k) + '<span class="ghost">' + t.slice(k) + "</span>";
+      }).join("<br>");
+    }
+
+    function tick() {
+      n++;
+      if (n > lines[ln].length) {
+        ln++;
+        n = 0;
+        if (ln >= lines.length) return draw();
+        draw();
+        return setTimeout(tick, 400);
+      }
+      draw();
+      setTimeout(tick, 70);
+    }
+
+    draw();
+    setTimeout(tick, 300);
   </script>
 </body>
 </html>
