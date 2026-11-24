@@ -4,19 +4,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Diaries</title>
+  <link rel="icon" type="image/png" href="diary/assets/diary_favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="diary-page">
   <header class="diary-header">
-    <p class="diary-name">nate bourget</p>
+    <p class="diary-name"><span>NATE BOURGET</span><canvas data-fit="NATE BOURGET" data-color="#000" aria-hidden="true"></canvas></p>
     <nav aria-label="Diaries navigation">
-      <a href="index.html" aria-label="Back to homepage">../</a>
+      <a href="index.html" aria-label="Back to homepage"><canvas data-fit="../" data-color="#000" aria-hidden="true"></canvas></a>
     </nav>
   </header>
   <main class="diary-entries">
-    <section aria-labelledby="diary-generation">
+    <section class="diary-entry" aria-labelledby="diary-generation">
       <h1 id="diary-generation">G.<span>I</span> Generation</h1>
     </section>
+    <div class="diary-rules" aria-hidden="true">
+      <hr>
+      <p class="diary-say">YOUR FAVORITE SOUND IS YOUR OWN FIRST NAME</p>
+      <hr class="diary-bevel">
+      <p class="diary-say">NOTHING BETTER THAN TALKING ABOUT YOURSELF</p>
+      <hr>
+    </div>
+    <section class="diary-promo" aria-label="College backup.promo">
+      <div class="diary-embed">
+        <iframe src="college-backup.promo.html" title="College backup.promo"></iframe>
+        <a class="diary-fullscreen" href="college-backup.promo.html">Fullscreen Diary Entries from College 2022-2026</a>
+      </div>
+    </section>
   </main>
+  <script>
+    const header = document.querySelector(".diary-header");
+    const FONT = 'Helvetica, "Helvetica Neue", Arial, sans-serif';
+
+    function fit(canvas) {
+      const box = canvas.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.round(box.width * dpr);
+      canvas.height = Math.round(box.height * dpr);
+      const ctx = canvas.getContext("2d");
+      const text = canvas.dataset.fit;
+      ctx.font = "bold 100px " + FONT;
+      const m = ctx.measureText(text);
+      const inkW = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
+      const inkH = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+      ctx.setTransform(canvas.width / inkW, 0, 0, canvas.height / inkH, 0, 0);
+      ctx.fillStyle = canvas.dataset.color;
+      ctx.fillText(text, m.actualBoundingBoxLeft, m.actualBoundingBoxAscent);
+    }
+
+    function layout() {
+      header.querySelectorAll("canvas").forEach(fit);
+      document.querySelectorAll(".diary-say").forEach(function (el) {
+        el.style.fontSize = "100px";
+        el.style.fontSize = 100 * el.clientWidth / el.scrollWidth + "px";
+      });
+    }
+
+    layout();
+    window.addEventListener("resize", layout);
+  </script>
+  <script type="importmap">{ "imports": { "three": "./three/three.module.min.js" } }</script>
+  <script type="module" src="arch-liquidator/climb.js"></script>
 </body>
 </html>

@@ -4,13 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>College backup.promo</title>
+  <link rel="icon" type="image/png" href="diary/assets/diary_favicon.png">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="backup-page">
   <a class="backup-back" href="diary.html" aria-label="Back to Diaries">../</a>
-  <h1 class="backup-title"><span>College backup.promo</span><img class="backup-bubble" src="blog/college-backup.promo/bubble1.png" alt=""></h1>
+  <h1 class="backup-title"><span>College backup.promo</span><img class="backup-bubble" src="diary/college-backup.promo/bubble1.png" alt=""></h1>
   <main class="backup-journal">
     <article class="backup-entry" aria-label="First journal entry"></article>
   </main>
+  <script>
+    if (window.self !== window.top) {
+      const back = document.querySelector(".backup-back");
+      back.removeAttribute("href");
+      back.removeAttribute("aria-label");
+      back.setAttribute("aria-hidden", "true");
+    }
+  </script>
 </body>
 </html>

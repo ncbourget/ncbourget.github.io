@@ -55,6 +55,15 @@ img {
   padding: 20px;
 }
 
+.outlinks-page ::selection {
+  color: #000;
+  background-color: #ffff00;
+}
+
+.outlinks-page a {
+  color: #ffff00;
+}
+
 .outlinks-back {
   position: absolute;
   top: 20px;
@@ -112,9 +121,10 @@ img {
 }
 
 .diary-page {
+  --tile: min(112px, 20vw);
   min-height: 100vh;
   overflow-x: clip;
-  background: #5d5c57;
+  background: #1c3a1e;
   color: #fff;
 }
 
@@ -122,13 +132,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 1;
-  min-height: 114px;
-  display: grid;
-  grid-template-columns: 40px minmax(0, 1fr) 40px;
-  place-items: center;
-  padding: 12px;
-  border-bottom: 2px solid #353535;
-  background: #5d5c57 url("blog/assets/bobcat.png") top center / auto 100% repeat-x;
+  width: calc(var(--tile) * 4);
+  height: calc(var(--tile) * 2);
 }
 
 @font-face {
@@ -138,32 +143,58 @@ img {
   font-display: swap;
 }
 
-.diary-name {
-  grid-column: 2;
+.diary-name,
+.diary-header a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--tile);
   margin: 0;
-  padding: 6px 16px;
-  border: 2px solid #545454;
-  border-radius: 8px;
-  background: #c4c4c4;
-  box-shadow: inset 1px 1px #e5e5e5, inset -1px -1px #777;
-  color: #ab0016;
-  font: italic 30px / 1.15 "Pitch Italic", "Courier New", monospace;
-  text-align: center;
-  overflow-wrap: anywhere;
+  background: #fff;
+}
+
+.diary-name {
+  width: calc(var(--tile) * 4);
+}
+
+.diary-header::after {
+  content: "";
+  position: absolute;
+  top: var(--tile);
+  left: var(--tile);
+  width: calc(var(--tile) * 3);
+  height: var(--tile);
+  background: url("diary/assets/bobcat.png") top left / auto 100% repeat-x;
 }
 
 .diary-header a {
+  top: var(--tile);
+  width: var(--tile);
+}
+
+.diary-name canvas,
+.diary-header a canvas {
   display: block;
-  padding: 3px 8px;
-  background: #fff;
-  color: #191919;
+  width: 100%;
+  height: 100%;
+}
+
+.diary-name span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
 }
 
 .diary-entries {
-  max-width: 760px;
-  margin: 28px auto;
-  padding: 0 20px;
   font-size: 16px;
+}
+
+.diary-entry {
+  min-height: calc(100svh - var(--tile) * 2);
+  max-width: 760px;
+  padding: 28px 20px;
 }
 
 .diary-entries h1 {
@@ -173,8 +204,64 @@ img {
   font-size: 32px;
 }
 
-.diary-entries h1 span {
+.diary-rules {
+  display: grid;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.diary-rules hr {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid #fff;
+}
+
+.diary-say {
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
   font-family: "Times New Roman", Times, serif;
+  font-weight: normal;
+  line-height: 1;
+  color: rgb(255, 255, 0);
+}
+
+.diary-rules .diary-bevel {
+  height: 4px;
+  border-top: 2px solid #404040;
+  border-bottom: 2px solid #dfdfdf;
+}
+
+.diary-promo {
+  padding: 28px 20px;
+  background: #b4b4b4;
+}
+
+.diary-embed {
+  width: 50%;
+  margin-left: auto;
+}
+
+.diary-embed iframe {
+  display: block;
+  width: 100%;
+  height: 80vh;
+  border: 4px solid;
+  border-color: #fff #404040 #404040 #fff;
+  box-shadow: inset 1px 1px #dfdfdf, inset -1px -1px #808080;
+}
+
+.diary-fullscreen {
+  display: block;
+  margin-top: 8px;
+  color: #000;
+}
+
+.diary-entries h1 {
+  font-family: "Pitch Italic", "Courier New", monospace;
+  font-style: italic;
+  font-weight: normal;
 }
 
 @media (max-width: 600px) {
@@ -256,7 +343,7 @@ img {
   bottom: 0;
   right: -14.56vw;
   width: calc(14.56vw - 6px);
-  background: url("blog/college-backup.promo/other.jpg") top left / 100% auto repeat-y;
+  background: url("diary/college-backup.promo/other.jpg") top left / 100% auto repeat-y;
   pointer-events: none;
 }
 
@@ -266,7 +353,7 @@ img {
   top: 0;
   right: 100%;
   width: 7.28vw;
-  color: #0000ff;
+  color: #fff;
   font-family: "Times New Roman", Times, serif;
   font-size: 144px;
   font-size-adjust: none;
@@ -276,8 +363,8 @@ img {
   text-decoration: none;
 }
 
-.backup-back:hover,
-.backup-back:focus-visible {
+.backup-back[href]:hover,
+.backup-back[href]:focus-visible {
   color: #ffff00;
 }
 
@@ -337,7 +424,7 @@ img {
   min-height: 100vh;
   margin-top: 22.61px;
   padding: 24px;
-  background: #35312e url("blog/whitewhitelie/Plate.png") repeat;
+  background: #35312e url("diary/whitewhitelie/Plate.png") repeat;
   background-size: 240px auto;
 }
 
@@ -484,27 +571,19 @@ img {
 }
 
 .homepage-header {
-  grid-column: 1;
-  grid-row: 2;
-  text-align: right;
+  grid-column: 1 / -1;
+  grid-row: 3;
+  margin-top: 64px;
+  text-align: center;
 }
 
 .portrait {
-  position: absolute;
-  top: -120px;
-  left: calc(50% + 201px);
+  grid-column: 1 / -1;
+  grid-row: 4;
+  justify-self: center;
+  align-self: start;
+  margin-top: 12px;
   width: 120px;
-}
-
-@media (max-width: 680px) {
-  .portrait {
-    left: auto;
-    right: 12px;
-  }
-
-  .homepage-name {
-    margin-right: 136px;
-  }
 }
 
 .portrait img {
@@ -540,11 +619,12 @@ img {
 }
 
 .home-sections {
+  width: min(100%, 370px);
+  margin: 32px auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin-top: var(--prayer-gap);
   padding-bottom: 24px;
 }
 
@@ -903,15 +983,15 @@ img {
 }
 
 .text-column {
-  grid-column: 1;
-  grid-row: 3;
+  grid-column: 1 / -1;
+  grid-row: 2;
   align-self: end;
   display: flex;
   flex-direction: column;
   gap: 6px;
   margin-top: 0;
   width: auto;
-  text-align: right;
+  text-align: center;
 }
 
 .home-error {
@@ -934,9 +1014,9 @@ img {
 }
 
 .prayer-button {
-  align-self: flex-end;
+  align-self: center;
   position: relative;
-  margin-top: var(--prayer-gap);
+  margin-top: calc(var(--prayer-gap) + 16px);
   padding: 0;
   border: 0;
   background: none;
@@ -1072,4 +1152,12 @@ img {
     gap: 70px;
     padding: 80px 24px;
   }
+}
+
+.liquidators {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  pointer-events: none;
 }
